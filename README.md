@@ -30,11 +30,10 @@ This ensures both the confidentiality and authenticity of all inter-service comm
 
 ---
 
-## 3. Monitoring and Deployment (Prometheus, Grafana, Minikube)
+## 3. Monitoring and Deployment (Prometheus, Grafana)
 
-The system includes an observability stack and is deployed using a simulated Kubernetes environment:
+The system includes an observability stack:
 
-- **Minikube**: Used to locally simulate a Kubernetes cluster for scalable deployment.
 - **Prometheus**: Continuously scrapes and stores system/application metrics.
 - **Grafana**: Visualizes real-time data using dashboards.
 
