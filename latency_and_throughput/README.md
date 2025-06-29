@@ -64,5 +64,4 @@ Model	-Latency R² -	Throughput R²	Not
 **Future Enhancements**
 *Incorporate real-time network traffic data
 *Add geo-location for regional efficiency modeling
-
-Develop interactive dashboard for slot-based prediction
+*Develop interactive dashboard for slot-based prediction
