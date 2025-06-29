@@ -39,11 +39,12 @@ Each configuration helps generate scenario-specific data that reflects distinct 
 
 ## Workflow
 
-1. Run the server and client in `datasets/` under each Clumsy scenario.
-2. Collect and save the output CSVs.
-3. Use `combine_scenarios.py` to merge all scenario datasets into one.
-4. Navigate to a model folder (`arima/`, `isolation_forest_lstm/`) to train and test anomaly detection models.
-5. Review results and visualizations in the respective `outputs/` directories.
+1. Run 'python -r requirements.txt' to get the required packages.
+2. Run the server and client in `datasets/` under each Clumsy scenario.
+3. Collect and save the output CSVs.
+5. Use `combine_scenarios.py` to merge all scenario datasets into one.
+6. Navigate to a model folder (`arima/`, `isolation_forest_lstm/`) to train and test anomaly detection models.
+7. Review results and visualizations in the respective `outputs/` directories.
 
 ---
 
