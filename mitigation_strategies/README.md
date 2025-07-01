@@ -1,10 +1,10 @@
-## 7 Strategies to Mitigate Attacks in M2M Communication Systems
+##  Strategies to Mitigate Attacks in M2M Communication Systems
 
 Machine-to-Machine (M2M) communication systems present unique security challenges, especially in industrial, IoT, and autonomous environments. This section proposes a comprehensive multilayered defense framework addressing adversarial attacks, data spoofing, and system integrity threats at the model, network, and system levels.
 
 
 
-### 7.1 Adversarial Machine Learning Mitigation Strategies
+### 1 Adversarial Machine Learning Mitigation Strategies
 
 - **Data Sanitization & Anomaly Detection** using Isolation Forests, Z-score thresholds, and Autoencoders for real-time outlier identification.
 - **Adversarial Training** with techniques like Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD) to condition models against adversarial inputs.
@@ -13,7 +13,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.2 Network-Level and Protocol Strategies
+### 2 Network-Level and Protocol Strategies
 
 - **Dynamic Port Randomization** to obscure communication channels and reduce scanning vulnerabilities.
 - **Protocol Hardening** by preferring MQTT with TLS or CoAP over DTLS and disabling insecure fallbacks.
@@ -23,7 +23,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.3 Identity, Access, and Authentication Frameworks
+### 3 Identity, Access, and Authentication Frameworks
 
 - **Mutual Authentication Protocols** using X.509 certificates and chain validation.
 - **Hardware Security Modules (HSM)** and Trusted Platform Modules (TPM) for secure credential storage.
@@ -32,7 +32,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.4 Data Integrity and Telemetry Protection
+### 4 Data Integrity and Telemetry Protection
 
 - **Cryptographic Hashing (SHA-256, HMAC)** and hash chains for message integrity.
 - **Redundant Feature Encoding** and cross-parameter validation to detect illogical telemetry patterns.
@@ -41,7 +41,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.5 Model Deployment and Lifecycle Strategies
+### 5 Model Deployment and Lifecycle Strategies
 
 - **Model Watermarking** (gradient-based or behavioral) to track tampering and ownership.
 - **Immutable Model Registries** with cryptographically verified histories.
@@ -50,7 +50,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.6 Monitoring and Audit Systems
+### 6 Monitoring and Audit Systems
 
 - **Real-Time Dashboards** via Grafana/Kibana to track model confidence, traffic anomalies, and connection attempts.
 - **Automated Alerting Pipelines** for immediate notification on anomaly detection.
@@ -59,7 +59,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.7 Physical and Hardware Layer Protection
+### 7 Physical and Hardware Layer Protection
 
 - **Device Fingerprinting** using Physical Unclonable Functions (PUFs) or behavioral identifiers.
 - **Tamper-Resistant Hardware Designs** with environmental monitoring and secure cryptographic processors.
@@ -68,7 +68,7 @@ Machine-to-Machine (M2M) communication systems present unique security challenge
 
 
 
-### 7.8 Implementation Roadmap
+### 8 Implementation Roadmap
 
 - **Threat Modeling and Penetration Testing** to assess vulnerabilities and prioritize defenses.
 - **Rapid Implementation of Quick-Win Defenses** while developing advanced mitigation measures.
