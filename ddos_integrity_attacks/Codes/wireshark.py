@@ -43,7 +43,7 @@ def train_models(df):
         print(f"\n--- Training: {name} ---")
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
-        print(f"✅ Evaluation for {name}")
+        print(f"Evaluation for {name}")
         print(classification_report(y_test, y_pred, target_names=label_le.classes_))
 
         score = model.score(X_test, y_test)
@@ -56,15 +56,15 @@ def train_models(df):
     joblib.dump(best_model, "best_model.pkl")
     joblib.dump(protocol_le, "protocol_label_encoder.pkl")
     joblib.dump(label_le, "label_label_encoder.pkl")
-    print("✅ Model and encoders saved.")
+    print(" Model and encoders saved.")
 
 
 # --- Real-time Classifier ---
 class RealTimeClassifier:
     def __init__(self, window_duration=5, csv_path="realtime_classified_traffic.csv"):
-        print("📦 Loading model and encoders...")
+        print(" Loading model and encoders...")
         if not os.path.exists("best_model.pkl"):
-            print("❌ Model not found. Please train first using 'train' mode.")
+            print(" Model not found. Please train first using 'train' mode.")
             sys.exit(1)
         self.model = joblib.load("best_model.pkl")
         self.protocol_le = joblib.load("protocol_label_encoder.pkl")
@@ -168,7 +168,7 @@ def retrain_from_realtime(csv_file="realtime_classified_traffic.csv"):
         return
     df = df.rename(columns={"predicted_label": "label"})
     train_models(df)
-    print("✅ Model retrained with real-time traffic.")
+    print("Model retrained with real-time traffic.")
 
 
 def periodic_retraining(interval_sec=3600):
@@ -179,17 +179,17 @@ def periodic_retraining(interval_sec=3600):
 
 
 def graceful_exit(signum, frame):
-    print("\n🛑 Signal received, stopping sniffing and retraining before exit...")
+    print("\n Signal received, stopping sniffing and retraining before exit...")
     retrain_from_realtime()
-    print("👋 Exiting now.")
+    print(" Exiting now.")
     sys.exit(0)
 
 
 def classify_wireshark_csv(csv_file):
-    print(f"🔍 Classifying Wireshark CSV traffic from: {csv_file}")
+    print(f" Classifying Wireshark CSV traffic from: {csv_file}")
 
     if not os.path.exists("best_model.pkl"):
-        print("❌ Model not found. Please train first using 'train' mode.")
+        print(" Model not found. Please train first using 'train' mode.")
         sys.exit(1)
 
     model = joblib.load("best_model.pkl")
@@ -214,7 +214,7 @@ def classify_wireshark_csv(csv_file):
     print(df[['protocol', 'packet_size', 'predicted_label']].head(20))
 
     df.to_csv("classified_wireshark_traffic.csv", index=False)
-    print(f"✅ Classified results saved to 'classified_wireshark_traffic.csv'.")
+    print(f"Classified results saved to 'classified_wireshark_traffic.csv'.")
 
 
 # --- MAIN ---
@@ -231,7 +231,7 @@ if __name__ == "__main__":
 
     if args.mode == "train":
         if not args.file:
-            print("❌ Please provide a dataset CSV with --file")
+            print(" Please provide a dataset CSV with --file")
             sys.exit(1)
         train_models(pd.read_csv(args.file))
 
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
     elif args.mode == "classify":
         if not args.file:
-            print("❌ Please provide a Wireshark CSV with --file")
+            print(" Please provide a Wireshark CSV with --file")
             sys.exit(1)
         classify_wireshark_csv(args.file)
 
