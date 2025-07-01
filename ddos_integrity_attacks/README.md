@@ -4,6 +4,8 @@
 
 ## 📌 Project Execution Summary
 
+![WORKFLOW Diagram](https://github.com/SharrolineGladia/optimise_inter_machine_communication_ai/blob/main/ddos_integrity_attacks/flowmap.png?raw=true)
+
 
 
 ### 1. Data Collection & Simulation
