@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package monitor;
+
+service MachineMonitor {
+    rpc SendBatchMetrics (MetricsBatchRequest) returns (MetricsBatchResponse);
+    rpc StreamLiveMetrics (stream MachineMetrics) returns (stream StatusUpdate);
+}
+
+message MachineInfo {
+    string id = 1;
+    string location = 2;
+}
+
+message MetricsBatchRequest {
+    repeated MachineInfo machines = 1;
+}
+
+message MetricsBatchResponse {
+    string summary = 1;
+}
+
+message MachineMetrics {
+    string machine_id = 1;
+    float cpu_usage = 2;
+    float memory_usage = 3;
+    float network_usage = 4;
+}
+
+message StatusUpdate {
+    string status = 1;
+}
