@@ -58,7 +58,7 @@ def run_and_save(label, duration=10):
     df = capture_features(label, duration)
     filename = f"{label}_traffic.csv"
     df.to_csv(filename, index=False)
-    print(f"✅ {label.capitalize()} data saved to {filename}")
+    print(f" {label.capitalize()} data saved to {filename}")
     return df
 
 # --- Step 2: Train models and save best ---
@@ -96,7 +96,7 @@ def train_models(df):
         print(f"\n--- Training: {name} ---")
         model.fit(X_train_scaled, y_train)
         y_pred = model.predict(X_test_scaled)
-        print(f"✅ Evaluation for {name}")
+        print(f" Evaluation for {name}")
         print(classification_report(y_test, y_pred, target_names=label_le.classes_))
 
         score = model.score(X_test_scaled, y_test)
@@ -105,7 +105,7 @@ def train_models(df):
             best_model = model
             best_model_name = name
 
-    print(f"\n✅ Best model: {best_model_name} with accuracy: {best_score:.2f}")
+    print(f"\n Best model: {best_model_name} with accuracy: {best_score:.2f}")
 
     # Save model, encoders, and scaler
     joblib.dump(best_model, "best_model.pkl")
@@ -202,7 +202,7 @@ if __name__ == "__main__":
 
     df_all = pd.concat([df_normal, df_ddos, df_data_integrity], ignore_index=True)
     df_all.to_csv("combined_attack_data.csv", index=False)
-    print("✅ All traffic saved to combined_attack_data.csv")
+    print(" All traffic saved to combined_attack_data.csv")
 
     train_models(df_all)
 
